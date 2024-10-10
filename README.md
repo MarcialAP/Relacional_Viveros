@@ -1,6 +1,6 @@
 # Relacional_Viveros
 
-Vivero (Código, Nombre, Longitud, Latitud)
+Vivero (<ins>Código</ins>, Nombre, Longitud, Latitud)
 
 Zona (Identificador, CodVivero, Tipo, Longitud, Latitud)
 - CodVivero Foreign Key Vivero(Código)
