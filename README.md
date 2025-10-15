@@ -13,14 +13,14 @@ Trabaja (<ins>IdEmpleado, IdZona</ins>, Fecha_Comienzo, Fecha_fin)
 
 Cliente (<ins>Código</ins>)
 
-ClienteTajinastePlus (<ins>Código</ins>, DNI, Teléfono, Correo, Fecha_Ingreso)
+ClienteTajinastePlus (<ins>Código</ins>, DNI, Teléfono, Correo, Fecha_Ingreso, NombreCompleto)
 - Código Foreign Key Cliente(Código)
 
 Compra (<ins>IdCompra</ins>, IdEmpleado, Fecha, PrecioTotal, IdCliente)
 - IdEmpleado Foreign Key Empleado(DNI)
 - IdCliente Foreign Key Cliente(Código)
 
-Producto (<ins>Código</ins>, Tipo)
+Producto (<ins>Código</ins>, Tipo, Descripción, Precio)
 
 Está_en (<ins>IdZona, IdProducto</ins>, Cantidad)
 - IdZona Foreign Key Zona(Identificador)
