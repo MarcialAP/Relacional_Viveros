@@ -2,10 +2,34 @@
 -- PostgreSQL database dump
 --
 
-\restrict BoKNq6VLcgEt4Iw0hYBb90BbzTzCwWKGiKbZF7GoPuvrlJ5gVAMMKpmQrRNd6HD
+\restrict 98eUyYScHfcDvSvERncpFJiy17p5YdZmniZ4qEe8jf7jfbhulgkCTmGQxm12Pai
 
 -- Dumped from database version 16.10 (Ubuntu 16.10-0ubuntu0.24.04.1)
 -- Dumped by pg_dump version 16.10 (Ubuntu 16.10-0ubuntu0.24.04.1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: viveros; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE viveros WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'es_ES.UTF-8';
+
+
+ALTER DATABASE viveros OWNER TO postgres;
+
+\unrestrict 98eUyYScHfcDvSvERncpFJiy17p5YdZmniZ4qEe8jf7jfbhulgkCTmGQxm12Pai
+\connect viveros
+\restrict 98eUyYScHfcDvSvERncpFJiy17p5YdZmniZ4qEe8jf7jfbhulgkCTmGQxm12Pai
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -357,164 +381,6 @@ ALTER TABLE ONLY public.zona ALTER COLUMN identificador SET DEFAULT nextval('pub
 
 
 --
--- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.cliente (codigo, dni, telefono, correo, fecha_ingreso, nombrecompleto, identificado) FROM stdin;
-1	99999991X	611111111	cli1@example.com	2025-09-15	Cliente Uno	t
-2	99999992X	611111112	cli2@example.com	2025-09-25	Cliente Dos	t
-3	99999993X	611111113	cli3@example.com	2025-10-05	Cliente Tres	t
-4	99999994X	611111114	cli4@example.com	2025-10-10	Cliente Cuatro	t
-5	99999995X	611111115	cli5@example.com	2025-10-15	Cliente Cinco	t
-6	\N	\N	\N	\N	\N	f
-7	\N	\N	\N	\N	\N	f
-8	\N	\N	\N	\N	\N	f
-9	\N	\N	\N	\N	\N	f
-10	\N	\N	\N	\N	\N	f
-\.
-
-
---
--- Data for Name: compra; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.compra (idcompra, idempleado, fecha, preciototal, idcliente) FROM stdin;
-5	55555555E	2025-10-15	0	5
-2	22222222B	2025-10-05	25	2
-3	33333333C	2025-10-10	14	3
-4	44444444D	2025-10-12	10	4
-1	11111111A	2025-09-30	189.2	1
-\.
-
-
---
--- Data for Name: contiene; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.contiene (idcompra, codproducto, cantidad) FROM stdin;
-1	1	2
-2	3	1
-3	4	2
-4	5	10
-1	3	7
-1	2	13
-\.
-
-
---
--- Data for Name: empleado; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.empleado (dni, nombrecompleto, telefono) FROM stdin;
-11111111A	Ana López	600111111
-22222222B	Carlos Pérez	600222222
-33333333C	María García	600333333
-44444444D	Luis Martínez	600444444
-55555555E	Sofía Ruiz	600555555
-\.
-
-
---
--- Data for Name: esta_en; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.esta_en (idzona, codproducto, cantidad) FROM stdin;
-2	5	50
-3	3	5
-4	4	8
-1	1	8
-1	2	1
-\.
-
-
---
--- Data for Name: producto; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.producto (codigo, tipo, precio, descripcion) FROM stdin;
-1	Planta	5.5	Rosa roja
-2	Planta	3.2	Margarita blanca
-3	Árbol	25	Olivo joven
-4	Cactus	7	Cactus pequeño
-5	Semilla	1	Semillas mixtas
-\.
-
-
---
--- Data for Name: trabaja; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.trabaja (idzona, idempleado) FROM stdin;
-1	11111111A
-1	22222222B
-2	33333333C
-3	44444444D
-4	55555555E
-\.
-
-
---
--- Data for Name: vivero; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.vivero (codigo, nombre, longitud, latitud) FROM stdin;
-1	Vivero Central	-3.70379	40.41678
-2	Vivero Norte	-3.703	40.45
-3	Vivero Sur	-3.7045	40.38
-4	Vivero Este	-3.68	40.416
-5	Vivero Oeste	-3.73	40.42
-\.
-
-
---
--- Data for Name: zona; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.zona (identificador, codvivero, tipo, longitud, latitud) FROM stdin;
-1	1	Plantas ornamentales	-3.7037	40.4168
-2	1	Semillas	-3.70375	40.41685
-3	2	Árboles	-3.7031	40.4505
-4	3	Cactus	-3.7046	40.3805
-5	4	Herbáceas	-3.6801	40.4161
-\.
-
-
---
--- Name: cliente_codigo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.cliente_codigo_seq', 10, true);
-
-
---
--- Name: compra_idcompra_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.compra_idcompra_seq', 5, true);
-
-
---
--- Name: producto_codigo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.producto_codigo_seq', 5, true);
-
-
---
--- Name: vivero_codigo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.vivero_codigo_seq', 5, true);
-
-
---
--- Name: zona_identificador_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.zona_identificador_seq', 5, true);
-
-
---
 -- Name: cliente cliente_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -676,5 +542,5 @@ ALTER TABLE ONLY public.zona
 -- PostgreSQL database dump complete
 --
 
-\unrestrict BoKNq6VLcgEt4Iw0hYBb90BbzTzCwWKGiKbZF7GoPuvrlJ5gVAMMKpmQrRNd6HD
+\unrestrict 98eUyYScHfcDvSvERncpFJiy17p5YdZmniZ4qEe8jf7jfbhulgkCTmGQxm12Pai
 

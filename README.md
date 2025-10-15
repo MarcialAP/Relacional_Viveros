@@ -11,7 +11,7 @@ Trabaja (<ins>IdEmpleado, IdZona</ins>, Fecha_Comienzo, Fecha_fin)
 - IdEmpleado Foreign Key Empleado(DNI)
 - IdZona Foreign Key Zona(Identificador)
 
-Cliente (<ins>Código</ins>)
+Cliente (<ins>Código</ins>, Identificado)
 
 ClienteTajinastePlus (<ins>Código</ins>, DNI, Teléfono, Correo, Fecha_Ingreso, NombreCompleto)
 - Código Foreign Key Cliente(Código)
